@@ -28,7 +28,7 @@ namespace GameOfLife.Tests
 
             public bool IsAlive { get; set; }
 
-            public Cell(Point point, bool isAlive=false)
+            public Cell(Point point, bool isAlive = false)
             {
                 Point = new Point(point);
                 IsAlive = isAlive;
@@ -43,30 +43,29 @@ namespace GameOfLife.Tests
             {
                 int countAliveNeighbours = 0;
 
-
                 for (int i = -1; i <= 1; i++)
-                    for(int j=-1; j<=1; j++)
-                {
-                        if(i==0 && j==0)
+                    for (int j = -1; j <= 1; j++)
+                    {
+                        if (i == 0 && j == 0)
                             continue;
 
-                    countAliveNeighbours = Cells[point.X + i + 1, point.Y + j + 1].IsAlive ? ++countAliveNeighbours : countAliveNeighbours;
+                        countAliveNeighbours = Cells[point.X + i + 1, point.Y + j + 1].IsAlive ? ++countAliveNeighbours : countAliveNeighbours;
 
-                    if (countAliveNeighbours > 2) return true;
-                }
+                        if (countAliveNeighbours > 2) return true;
+                    }
 
-                return countAliveNeighbours >= 2 && Cells[point.X+1,point.Y+1].IsAlive || countAliveNeighbours >2;
+                return countAliveNeighbours >= 2 && Cells[point.X + 1, point.Y + 1].IsAlive || countAliveNeighbours > 2;
             }
 
             public Board(int maxWidth, int maxHeight)
             {
-                Cells = new Cell[maxWidth+2, maxHeight+2];
+                Cells = new Cell[maxWidth + 2, maxHeight + 2];
 
                 //+2 for border
                 for (int i = 0; i < maxWidth + 2; i++)
                     for (int j = 0; j < maxHeight + 2; j++)
                     {
-                        Cells[i, j] = new Cell(new Point(i, j), false);
+                        Cells[i, j] = new Cell(new Point(i, j));
                     }
             }
 
@@ -90,7 +89,7 @@ namespace GameOfLife.Tests
         }
 
         [Fact]
-        public void GetNextLivingCell_lessThenThreeNeighboursWithInActiveCell_ShouldReturnFalse()
+        public void GetNextLivingCell_lessThenThreeNeighboursForInActiveCell_ShouldReturnFalse()
         {
             //Arrange
             Board board = new Board(3, 3);
@@ -104,7 +103,7 @@ namespace GameOfLife.Tests
         }
 
         [Fact]
-        public void GetNextLivingCell_moreThenThreeNeighboursWithInactiveCell_shouldReturnTrue()
+        public void GetNextLivingCell_moreThenThreeNeighboursForInactiveCell_shouldReturnTrue()
         {
             //Arrange
             Board board = new Board(3, 3);
@@ -119,9 +118,8 @@ namespace GameOfLife.Tests
             Assert.Equal(true, expectedAlive);
         }
 
-
         [Fact]
-        public void GetNextLivingCell_lessWithTwoActiveNeighboursFromActiveCell_ShouldReturnTrue()
+        public void GetNextLivingCell_WithTwoActiveNeighboursForActiveCell_ShouldReturnTrue()
         {
             //Arrange
             Board board = new Board(3, 3);
@@ -133,6 +131,20 @@ namespace GameOfLife.Tests
 
             //Assert
             Assert.Equal(true, expectedAlive);
+        }
+
+        [Fact]
+        public void GetNextLivingCell_lessThanTwoActiveNeighboursForActiveCell_ShouldReturnTrue()
+        {
+            //Arrange
+            Board board = new Board(3, 3);
+            board.SetLivingCell(new Point(0, 0), true);
+            board.SetLivingCell(new Point(1, 1), true);
+            //Act
+            bool expectedAlive = board.GetNextLivingCell(new Point(1, 1));
+
+            //Assert
+            Assert.Equal(false, expectedAlive);
         }
     }
 }
