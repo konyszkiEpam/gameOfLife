@@ -1,6 +1,8 @@
+using GameOfLife.Core;
+
 namespace GameOfLife.Infrastructure
 {
-    public class Point
+    public class Point : IPoint
     {
         public int X { get; set; }
         public int Y { get; set; }

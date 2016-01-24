@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Tests", "GameOfL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Infrastructure", "GameOfLife.Infrastructure\GameOfLife.Infrastructure.csproj", "{5F31DAE1-41FC-466C-8014-645ED0E4CC2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Core", "GameOfLife.Core\GameOfLife.Core.csproj", "{1845CC11-3884-4853-9179-488EEC0B5294}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5F31DAE1-41FC-466C-8014-645ED0E4CC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F31DAE1-41FC-466C-8014-645ED0E4CC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F31DAE1-41FC-466C-8014-645ED0E4CC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1845CC11-3884-4853-9179-488EEC0B5294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1845CC11-3884-4853-9179-488EEC0B5294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1845CC11-3884-4853-9179-488EEC0B5294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1845CC11-3884-4853-9179-488EEC0B5294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

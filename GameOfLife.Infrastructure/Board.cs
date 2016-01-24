@@ -1,6 +1,8 @@
+using GameOfLife.Core;
+
 namespace GameOfLife.Infrastructure
 {
-    public class Board
+    public class Board : IBoard
     {
         public Board(Cell[,] cells)
         {
@@ -21,7 +23,7 @@ namespace GameOfLife.Infrastructure
 
         private Cell[,] Cells { get; set; }
 
-        public bool GetNextLivingCell(Point point)
+        public bool GetNextLivingCell(IPoint point)
         {
             int countAliveNeighbours = 0;
 
@@ -39,7 +41,7 @@ namespace GameOfLife.Infrastructure
             return countAliveNeighbours >= 2 && Cells[point.X + 1, point.Y + 1].IsAlive || countAliveNeighbours > 2;
         }
 
-        public void SetLivingCell(Point point, bool isAlive)
+        public void SetLivingCell(IPoint point, bool isAlive)
         {
             Cells[point.X + 1, point.Y + 1].IsAlive = isAlive;
         }

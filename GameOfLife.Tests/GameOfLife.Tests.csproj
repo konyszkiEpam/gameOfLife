@@ -69,6 +69,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.Core\GameOfLife.Core.csproj">
+      <Project>{1845CC11-3884-4853-9179-488EEC0B5294}</Project>
+      <Name>GameOfLife.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameOfLife.Infrastructure\GameOfLife.Infrastructure.csproj">
       <Project>{5f31dae1-41fc-466c-8014-645ed0e4cc2d}</Project>
       <Name>GameOfLife.Infrastructure</Name>

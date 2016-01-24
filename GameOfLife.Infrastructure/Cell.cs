@@ -1,6 +1,8 @@
+using GameOfLife.Core;
+
 namespace GameOfLife.Infrastructure
 {
-    public class Cell
+    public class Cell : ICell
     {
         public Cell(Point point, bool isAlive = false)
         {
