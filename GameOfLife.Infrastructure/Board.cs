@@ -4,7 +4,6 @@ namespace GameOfLife.Infrastructure
 {
     public class Board : IBoard
     {
-
         public int MaxWidth { get; set; }
         public int MaxHeight { get; set; }
 
@@ -24,7 +23,6 @@ namespace GameOfLife.Infrastructure
                     Cells[i, j] = new Cell(new Point(i, j));
                 }
         }
-
 
         public bool GetNextLivingCell(IPoint point)
         {
