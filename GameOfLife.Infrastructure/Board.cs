@@ -8,8 +8,7 @@ namespace GameOfLife.Infrastructure
         public int MaxWidth { get; set; }
         public int MaxHeight { get; set; }
 
-
-        private Cell[,] Cells { get; set; }
+        public Cell[,] Cells { get; set; }
 
         public Board(int maxWidth, int maxHeight)
         {

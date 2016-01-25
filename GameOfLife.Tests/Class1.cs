@@ -10,9 +10,19 @@ namespace GameOfLife.Tests
         {
             public IBoard GetOutsideBoard(Board insideBoard)
             {
-                IBoard board = new Board(insideBoard.MaxWidth, insideBoard.MaxHeight);
+                IBoard nextBoard = new Board(insideBoard.MaxWidth, insideBoard.MaxHeight);
 
-                return board;
+                for (int i = 1; i < insideBoard.MaxWidth - 1; ++i)
+                    for (int j = 1; j < insideBoard.MaxHeight - 1; j++)
+                    {
+                        IPoint newPoint = new Point(i, j);
+
+                        bool isPointActive = insideBoard.GetNextLivingCell(newPoint);
+
+                        nextBoard.SetLivingCell(newPoint, isPointActive);
+                    }
+
+                return nextBoard;
             }
         }
 
