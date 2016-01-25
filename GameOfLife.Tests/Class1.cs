@@ -1,16 +1,18 @@
-﻿using GameOfLife.Infrastructure;
+﻿using GameOfLife.Core;
+using GameOfLife.Infrastructure;
 using Xunit;
 
 namespace GameOfLife.Tests
 {
     public class Class1
     {
-
         public class Game
         {
-            public Board GetOutsideBoard(Board insideBoard)
+            public IBoard GetOutsideBoard(Board insideBoard)
             {
-                return null;
+                IBoard board = new Board(insideBoard.MaxWidth, insideBoard.MaxHeight);
+
+                return board;
             }
         }
 

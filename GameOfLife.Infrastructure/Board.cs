@@ -4,13 +4,18 @@ namespace GameOfLife.Infrastructure
 {
     public class Board : IBoard
     {
-        public Board(Cell[,] cells)
-        {
-            Cells = cells;
-        }
+
+        public int MaxWidth { get; set; }
+        public int MaxHeight { get; set; }
+
+
+        private Cell[,] Cells { get; set; }
 
         public Board(int maxWidth, int maxHeight)
         {
+            MaxWidth = maxWidth;
+            MaxHeight = maxHeight;
+
             Cells = new Cell[maxWidth + 2, maxHeight + 2];
 
             //+2 for border
@@ -21,7 +26,6 @@ namespace GameOfLife.Infrastructure
                 }
         }
 
-        private Cell[,] Cells { get; set; }
 
         public bool GetNextLivingCell(IPoint point)
         {
