@@ -6,25 +6,6 @@ namespace GameOfLife.Tests
 {
     public class Class1
     {
-        public class Game : IGame
-        {
-            public IBoard GetOutsideBoard(IBoard insideBoard)
-            {
-                Board nextBoard = new Board(insideBoard.MaxWidth, insideBoard.MaxHeight);
-
-                for (int i = 0; i < insideBoard.MaxWidth; ++i)
-                    for (int j = 0; j < insideBoard.MaxHeight; ++j)
-                    {
-                        IPoint newPoint = new Point(i, j);
-
-                        bool isPointActive = insideBoard.GetNextLivingCell(newPoint);
-
-                        nextBoard.SetLivingCell(newPoint, isPointActive);
-                    }
-
-                return nextBoard;
-            }
-        }
 
         [Fact]
         public void GetNextBoard_GamePlay_ShouldreturnCorrectBoard()
@@ -41,7 +22,7 @@ namespace GameOfLife.Tests
             newBoard.SetLivingCell(new Point(1, 2), true);
 
             //Act
-            IGame game = new Game();
+            Game game = new Game();
             IBoard nextBoard = game.GetOutsideBoard(oldBoard);
 
             //Assert

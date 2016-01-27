@@ -1,7 +1,4 @@
-﻿using GameOfLife.Core;
-using GameOfLife.Infrastructure;
-
-namespace GameOfLife.Tests
+﻿namespace GameOfLife.Core
 {
     public interface IGame
     {
