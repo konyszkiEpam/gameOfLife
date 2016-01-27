@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using GameOfLife.Core;
 
 namespace GameOfLife.Infrastructure
@@ -24,6 +25,24 @@ namespace GameOfLife.Infrastructure
                 }
         }
 
+
+        public bool Compare(IBoard boardToCompare)
+        {
+
+            if (MaxWidth != boardToCompare.MaxWidth) return false;
+            if (MaxHeight != boardToCompare.MaxHeight) return false;
+
+
+            for (int i = 0; i < MaxWidth + 2; i++)
+                for (int j = 0; j < MaxHeight + 2; j++)
+                {
+                    if(Cells[i, j].IsAlive != boardToCompare.GetLivingCell(i - 1, j - 1))
+                    return false;
+                }
+
+            return true;
+        }
+
         public bool GetNextLivingCell(IPoint point)
         {
             int countAliveNeighbours = 0;
@@ -31,7 +50,7 @@ namespace GameOfLife.Infrastructure
             for (int i = -1; i <= 1; i++)
                 for (int j = -1; j <= 1; j++)
                 {
-                    if (i == 0 && j == 0)
+                    if (i == 0 && j==0)
                         continue;
 
                     countAliveNeighbours = Cells[point.X + i + 1, point.Y + j + 1].IsAlive ? ++countAliveNeighbours : countAliveNeighbours;
