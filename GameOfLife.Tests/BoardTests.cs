@@ -3,7 +3,7 @@ using Xunit;
 
 namespace GameOfLife.Tests
 {
-    internal class BoardTests
+    public class BoardTests
     {
         [Fact]
         public void GetNextLivingCell_lessThenThreeNeighboursForInActiveCell_ShouldReturnFalse()
