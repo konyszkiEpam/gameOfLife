@@ -1,7 +1,6 @@
-using System.Net.NetworkInformation;
-using GameOfLife.Core;
+using GameOfLife.Core.Interfaces;
 
-namespace GameOfLife.Infrastructure
+namespace GameOfLife.Core.Model
 {
     public class Board : IBoard
     {

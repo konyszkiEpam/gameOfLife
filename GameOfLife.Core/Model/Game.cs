@@ -1,6 +1,6 @@
-﻿using GameOfLife.Core;
+﻿using GameOfLife.Core.Interfaces;
 
-namespace GameOfLife.Infrastructure
+namespace GameOfLife.Core.Model
 {
     public class Game
     {

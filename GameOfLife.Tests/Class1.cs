@@ -1,12 +1,11 @@
-﻿using GameOfLife.Core;
-using GameOfLife.Infrastructure;
+﻿using GameOfLife.Core.Interfaces;
+using GameOfLife.Core.Model;
 using Xunit;
 
 namespace GameOfLife.Tests
 {
     public class Class1
     {
-
         [Fact]
         public void GetNextBoard_GamePlay_ShouldreturnCorrectBoard()
         {

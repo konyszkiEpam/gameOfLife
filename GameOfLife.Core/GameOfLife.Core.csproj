@@ -40,12 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBoard.cs" />
-    <Compile Include="ICell.cs" />
-    <Compile Include="IGame.cs" />
-    <Compile Include="IPoint.cs" />
+    <Compile Include="Model\Board.cs" />
+    <Compile Include="Model\Cell.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Interfaces\IBoard.cs" />
+    <Compile Include="Interfaces\ICell.cs" />
+    <Compile Include="Interfaces\IGame.cs" />
+    <Compile Include="Interfaces\IPoint.cs" />
+    <Compile Include="Model\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
