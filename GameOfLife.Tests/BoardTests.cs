@@ -4,7 +4,7 @@ using Xunit;
 
 namespace GameOfLife.Tests
 {
-    public class Class1
+    internal class BoardTests
     {
         [Fact]
         public void GetNextBoard_GamePlay_ShouldreturnCorrectBoard()
