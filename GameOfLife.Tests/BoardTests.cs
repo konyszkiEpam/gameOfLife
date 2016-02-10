@@ -1,5 +1,7 @@
 ﻿using GameOfLife.Core.Model;
 using Xunit;
+using  FakeItEasy;
+using GameOfLife.Core.Interfaces;
 
 namespace GameOfLife.Tests
 {
@@ -9,11 +11,12 @@ namespace GameOfLife.Tests
         public void GetNextLivingCell_lessThenThreeNeighboursForInActiveCell_ShouldReturnFalse()
         {
             //Arrange
-            Board board = new Board(3, 3);
-            board.SetLivingCell(new Point(0, 0), true);
-            board.SetLivingCell(new Point(0, 1), true);
+            IBoard boardFake = A.Fake<Board>(x=>x.WithArgumentsForConstructor(()=>new Board(3,3)));
+            boardFake.SetLivingCell(new Point(0, 0), true);
+            boardFake.SetLivingCell(new Point(0, 1), true);
+
             //Act
-            bool expectedAlive = board.GetNextLivingCell(new Point(1, 1));
+            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 1));// board.GetNextLivingCell(new Point(1, 1));
 
             //Assert
             Assert.Equal(false, expectedAlive);
@@ -23,12 +26,12 @@ namespace GameOfLife.Tests
         public void GetNextLivingCell_moreThenThreeNeighboursForInactiveCell_shouldReturnTrue()
         {
             //Arrange
-            Board board = new Board(3, 3);
-            board.SetLivingCell(new Point(0, 0), true);
-            board.SetLivingCell(new Point(0, 1), true);
-            board.SetLivingCell(new Point(0, 2), true);
+            IBoard boardFake = A.Fake<Board>(x => x.WithArgumentsForConstructor(() => new Board(3, 3)));
+            boardFake.SetLivingCell(new Point(0, 0), true);
+            boardFake.SetLivingCell(new Point(0, 1), true);
+            boardFake.SetLivingCell(new Point(0, 2), true);
             //Act
-            bool expectedAlive = board.GetNextLivingCell(new Point(1, 1));
+            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 1));
 
             //Assert
             Assert.Equal(true, expectedAlive);
@@ -38,12 +41,12 @@ namespace GameOfLife.Tests
         public void GetNextLivingCell_WithTwoActiveNeighboursForActiveCell_ShouldReturnTrue()
         {
             //Arrange
-            Board board = new Board(3, 3);
-            board.SetLivingCell(new Point(0, 0), true);
-            board.SetLivingCell(new Point(0, 1), true);
-            board.SetLivingCell(new Point(1, 1), true);
+            IBoard boardFake = A.Fake<Board>(x => x.WithArgumentsForConstructor(() => new Board(3, 3)));
+            boardFake.SetLivingCell(new Point(0, 0), true);
+            boardFake.SetLivingCell(new Point(0, 1), true);
+            boardFake.SetLivingCell(new Point(1, 1), true);
             //Act
-            bool expectedAlive = board.GetNextLivingCell(new Point(1, 1));
+            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 1));
 
             //Assert
             Assert.Equal(true, expectedAlive);
@@ -53,11 +56,11 @@ namespace GameOfLife.Tests
         public void GetNextLivingCell_lessThanTwoActiveNeighboursForActiveCell_ShouldReturnFalse()
         {
             //Arrange
-            Board board = new Board(3, 3);
-            board.SetLivingCell(new Point(0, 0), true);
-            board.SetLivingCell(new Point(1, 1), true);
+            IBoard boardFake = A.Fake<Board>(x => x.WithArgumentsForConstructor(() => new Board(3, 3)));
+            boardFake.SetLivingCell(new Point(0, 0), true);
+            boardFake.SetLivingCell(new Point(1, 1), true);
             //Act
-            bool expectedAlive = board.GetNextLivingCell(new Point(1, 1));
+            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 1));
 
             //Assert
             Assert.Equal(false, expectedAlive);
@@ -67,12 +70,12 @@ namespace GameOfLife.Tests
         public void GetNextLivingCell_ThreeActiveNeighboursForInActiveCell_ShouldReturnTrue()
         {
             //Arrange
-            Board board = new Board(3, 3);
-            board.SetLivingCell(new Point(0, 1), true);
-            board.SetLivingCell(new Point(1, 1), true);
-            board.SetLivingCell(new Point(2, 1), true);
+            IBoard boardFake = A.Fake<Board>(x => x.WithArgumentsForConstructor(() => new Board(3, 3)));
+            boardFake.SetLivingCell(new Point(0, 1), true);
+            boardFake.SetLivingCell(new Point(1, 1), true);
+            boardFake.SetLivingCell(new Point(2, 1), true);
             //Act
-            bool expectedAlive = board.GetNextLivingCell(new Point(1, 2));
+            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 2));
 
             //Assert
             Assert.Equal(true, expectedAlive);
