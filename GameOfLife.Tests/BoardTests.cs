@@ -1,7 +1,7 @@
-﻿using GameOfLife.Core.Model;
-using Xunit;
-using  FakeItEasy;
+﻿using FakeItEasy;
 using GameOfLife.Core.Interfaces;
+using GameOfLife.Core.Model;
+using Xunit;
 
 namespace GameOfLife.Tests
 {
@@ -11,12 +11,12 @@ namespace GameOfLife.Tests
         public void GetNextLivingCell_lessThenThreeNeighboursForInActiveCell_ShouldReturnFalse()
         {
             //Arrange
-            IBoard boardFake = A.Fake<Board>(x=>x.WithArgumentsForConstructor(()=>new Board(3,3)));
+            IBoard boardFake = A.Fake<Board>(x => x.WithArgumentsForConstructor(() => new Board(3, 3)));
             boardFake.SetLivingCell(new Point(0, 0), true);
             boardFake.SetLivingCell(new Point(0, 1), true);
 
             //Act
-            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 1));// board.GetNextLivingCell(new Point(1, 1));
+            bool expectedAlive = boardFake.GetNextLivingCell(new Point(1, 1));
 
             //Assert
             Assert.Equal(false, expectedAlive);
