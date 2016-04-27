@@ -1,7 +1,6 @@
 ﻿using GameOfLife.Core.Interfaces;
 using GameOfLife.Core.Model;
 using Xunit;
-using System.Runtime;
 
 namespace GameOfLife.Tests
 {
